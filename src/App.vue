@@ -1,8 +1,13 @@
 <script setup>
+import TheNavigation from "./components/TheNavigation.vue";
+import { RouterView } from "vue-router";
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
+  <div class="wrapper">
+    <TheNavigation />
+    <RouterView />
+  </div>
 </template>
 
 <style>
