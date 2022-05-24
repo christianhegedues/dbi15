@@ -5,7 +5,9 @@ import { RouterView } from "vue-router";
 
 <template>
   <div class="wrapper">
-    <TheNavigation />
+    <header>
+      <TheNavigation />
+    </header>
     <RouterView />
   </div>
 </template>
@@ -15,8 +17,13 @@ import { RouterView } from "vue-router";
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 768px;
+}
 </style>
+

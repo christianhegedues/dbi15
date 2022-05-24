@@ -10,9 +10,19 @@ export const router = createRouter({
       component: HomeView
     },
     {
-      path: '/exercise/:id',
-      name: 'exercise',
-      component: () => import('../views/ExerciseView.vue')
+      path: '/exercise/1',
+      name: 'exercise1',
+      component: () => import('../views/ExerciseAView.vue')
+    },
+    {
+      path: '/exercise/2',
+      name: 'exercise2',
+      component: () => import('../views/ExerciseBView.vue')
+    },
+    {
+      path: '/exercise/3',
+      name: 'exercise3',
+      component: () => import('../views/ExerciseCView.vue')
     }
   ]
 })
