@@ -33,7 +33,11 @@ onUnmounted(() => {
 <style>
 .datetime {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+
+  background-color: #f1f1f1;
+  padding: .75rem .5rem;
 }
 </style>
 
