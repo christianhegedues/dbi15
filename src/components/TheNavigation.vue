@@ -5,6 +5,11 @@ import { RouterLink } from "vue-router";
 <template>
   <nav class="navigation">
     <ul class="main-menu__list">
+      <li>
+        <RouterLink :to="'/'">
+        {{ 'Home' }}
+        </RouterLink>
+      </li>
       <li v-for="i in 3" :key="i">
         <RouterLink :to="`/exercise/${i}`">
         {{ `Aufgabe ${i}` }}
