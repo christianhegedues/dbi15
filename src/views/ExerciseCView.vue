@@ -41,7 +41,7 @@ onMounted(async () => {
    * Assign data and subscription
    */
   data.value = await getLastNRows(10)
-  subscription.value = supabase.from('users').on('*', (payload) => {
+  subscription.value = supabase.from('users').on('UPDATE', (payload) => {
     data.value = payload.new.ip_address
   }).subscribe()
 
