@@ -31,7 +31,7 @@ onMounted(async () => {
    * Check if the current IP is the last IP in row
    */
   const lastIPAddress = await getLastNRows(1)
-  if (lastIPAddress[0].ip_address !== userIPAddress.value) {
+  if (!lastIPAddress.length || lastIPAddress[0].ip_address != userIPAddress.value) {
     await supabase.from('users').insert([
       { ip_address: userIPAddress.value }
     ])
