@@ -1,7 +1,7 @@
 <script setup>
 import UserInfo from "@/components/UserInfo.vue";
 import supabase from "../supabase.js";
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount, computed } from "vue";
 
 const loading = ref(false)
 const data = ref([])
@@ -15,12 +15,12 @@ async function getIPAddress() {
 }
 
 async function getLastNRows(n) {
-  const { data } = await supabase.from('users')
-    .select('ip_address')
+  const { data: response } = await supabase.from('users')
+    .select('id, ip_address')
     .order('created_at', { ascending: false })
     .limit(n)
 
-  return data.reverse()
+  return response.reverse()
 }
 
 onMounted(async () => {
@@ -42,7 +42,13 @@ onMounted(async () => {
    */
   data.value = await getLastNRows(10)
   subscription.value = supabase.from('users').on('INSERT', (payload) => {
-    data.value = payload.new.ip_address
+    const { id, ip_address } = payload.new
+
+    if (data.value.length === 10) {
+      data.value.splice(0, 1)
+    }
+
+    data.value.push({ id, ip_address })
   }).subscribe()
 
   loading.value = false
@@ -74,7 +80,7 @@ onBeforeUnmount(() => {
     <div class="flex-item">
       <div class="ip">
         <p>Die letzten zehn Besucher:</p>
-        <UserInfo v-if="!loading" :data="data.map((x) => x.ip_address)" />
+        <UserInfo v-if="!loading" :data="data" />
         <span v-else>
           Daten werden geladen...
         </span>

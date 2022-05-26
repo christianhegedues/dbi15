@@ -9,8 +9,8 @@ defineProps({
 
 <template>
   <ul class="user-info">
-    <li v-for="(item, index) in data" :key="index">
-      {{ item }}
+    <li v-for="(item) in data" :key="item.id">
+      {{ item.ip_address }}
     </li>
   </ul>
 </template>
