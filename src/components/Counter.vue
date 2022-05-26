@@ -19,7 +19,7 @@ defineEmits([
       <Button @click="$emit('update:count', 1)">
         <span>+</span>
       </Button>
-      <Button @click="$emit('update:count', -1)">
+      <Button @click="$emit('update:count', -1)" v-show="count > 0">
         <span>-</span>
       </Button>
     </div>
