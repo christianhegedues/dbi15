@@ -29,8 +29,8 @@ onBeforeUnmount(() => {
 
 <template>
   <section class="exercise">
-    <p><strong>Zähler browserübergriefend aktualisieren</strong></p>
     <Counter :count="count" @update:count="updateCount" />
+    <p> <strong>Reflektion</strong> </p>
     <p>Um einen Zähler über mehrere Browser hinweg aktuell zu halten, kommt man
     mit einer clientseitigen Umsetzung allein nicht weiter. Es braucht eine
     Datenbank, die den Wert des Zählers hält und eine wechselseitige Kommunikation

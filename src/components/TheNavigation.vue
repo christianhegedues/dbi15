@@ -15,8 +15,9 @@ import { RouterLink } from "vue-router";
 </template>
 
 <style>
-.main-menu {
+.navigation {
   padding: 0;
+  margin-bottom: 1rem;
 }
 
 .main-menu__list {

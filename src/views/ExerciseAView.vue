@@ -16,16 +16,16 @@ function updateCount(increase) {
 <template>
   <article>
     <section class="exercise">
-      <p><strong>Anzeigen der Uhrzeit:</strong></p>
       <DateTime />
+      <p> <strong>Reflektion</strong> </p>
       <p>Das Anzeigen der aktuellen Uhrzeit ist clientseitig umgesetzt. Dabei 
       greift eine JavaScript-Funktion die Uhrzeit des Nutzers ab und gibt diese
       beim Klick auf den Button formatiert zurück. Zusätzlich läuft ein 
       Interval, was die Uhrzeit im Sekundentakt aktualisiert.</p>
     </section>
     <section>
-      <p><strong>Inkrementieren eines Zählers</strong></p>
       <Counter :count="count" @update:count="updateCount" />
+      <p> <strong>Reflektion</strong> </p>
       <p>Das Inkrementieren des Zählers ist clientseitig möglich. Das Hoch- oder
       Herunterzählen erfolgt über JavaScript. Da der Wert des Zählers nicht 
       anwendungsweit oder sogar über Sitzungen hinweg gehalten werden muss, ist
